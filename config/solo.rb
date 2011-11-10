@@ -3,7 +3,7 @@
 #
 smeagol_root = "#{Dir.tmpdir}/smeagol"
 
-log_level          :info
+log_level          :debug # previously :info
 log_location       STDOUT
 sandbox_path       "#{smeagol_root}/sandboxes"
 file_cache_path    "#{smeagol_root}/cookbooks"
