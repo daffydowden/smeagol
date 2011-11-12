@@ -32,9 +32,10 @@ script "installing ruby-1.8.7-p352 to ~/Developer/.rbenv" do
     source ~/.cinderella.profile
 
     if [ ! -d ~/Developer/.rbenv/versions/1.8.7-p352 ]; then
-      rbenv install 1.8.7-p352
+      ruby-build 1.8.7-p352 ~/Developer/.rbenv/versions/1.8.7-p352
     fi
   EOS
+  #rbenv install 1.8.7-p352
 end
 
 script "ensuring a default ruby is set" do
