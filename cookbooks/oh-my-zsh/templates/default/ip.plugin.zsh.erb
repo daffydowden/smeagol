@@ -1,0 +1,12 @@
+# Get machine ip details
+
+# Ethernet Adapter
+# ipconfig getifaddr en0
+
+# Wireless Adapter
+# ipconfig getifaddr en1
+
+# External IP Address
+# curl -s http://checkip.dyndns.org | sed 's/[a-zA-Z/<> :]//g'
+
+alias ip="echo 'External IP' && curl -s http://checkip.dyndns.org | sed 's/[a-zA-Z/<> :]//g' && echo 'Adapter IP' && ipconfig getifaddr en0 || ipconfig getifaddr en1"
