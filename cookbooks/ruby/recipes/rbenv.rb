@@ -53,11 +53,12 @@ script "ensuring a default ruby is set" do
 end
 
 script "installing basic gems" do
+  # TODO load from this file instead -> #source "default.gems.erb"
   interpreter "bash"
   code <<-EOS
     source ~/.cinderella.profile
     gem install bundler heroku cinderella
-    gem install rake -v=0.8.7
+    gem install rake
     rbenv rehash
   EOS
 end
