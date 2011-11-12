@@ -44,6 +44,7 @@ script "ensuring a default ruby is set" do
     source ~/.cinderella.profile
     `which ruby | grep -q rbenv`
     if [ $? -ne 0 ]; then
+      eval "$(rbenv init -)"
       rm -rf ~/.rbenv/versions
       ln -s ~/Developer/.rbenv/versions ~/.rbenv/versions
       rbenv rehash
