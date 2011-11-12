@@ -11,26 +11,9 @@ require root + '/resources/homebrew'
 require root + '/providers/homebrew'
 require 'etc'
 
-script "installing rbenv to ~/Developer" do
-  interpreter "bash"
-  code <<-EOS
-    source ~/.cinderella.profile
-    if [[ ! -d ~/Developer/.rbenv ]]; then
-      git clone git://github.com/sstephenson/rbenv.git ~/Developer/.rbenv
-    fi
-  EOS
-end
 
-script "installing ruby-build to ~/Developer" do
-  interpreter "bash"
-  code <<-EOS
-    source ~/.cinderella.profile
-    if [[ ! -x ~/Developer/bin/ruby-build ]]; then
-      git clone git://github.com/sstephenson/ruby-build.git #{Dir.tmpdir}/ruby-build >> ~/.cinderella/ruby.log
-      cd #{Dir.tmpdir}/ruby-build && /usr/bin/env PREFIX=~/Developer ./install.sh >> ~/.cinderella/ruby.log
-    fi
-  EOS
-end
+homebrew "rbenv"
+homebrew "ruby-build"
 
 script "installing ruby-#{DEFAULT_RUBY_VERSION} to ~/Developer/.rbenv" do
   interpreter "bash"
