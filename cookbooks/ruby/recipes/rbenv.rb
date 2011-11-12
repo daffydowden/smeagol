@@ -59,13 +59,11 @@ homebrew "rbenv-gemset"
 #   command "rbenv gemset install"
 # end
 
-script "installing basic gems" do
-  # TODO load from this file instead -> #source "default.gems.erb"
-  interpreter "bash"
+bash "installing basic gems" do
+  gems = "rake rdoc bundler cinderella terminitor lunchy powify wirble hirb sketches what_methods map_by_method looksee net-http-spy jsonpretty awesome_print pry pry-doc heroku engineyard gist"
   code <<-EOS
-    source ~/.cinderella.profile
-    gem install bundler heroku cinderella
-    gem install rake
-    rbenv rehash
+  source ~/.cinderella.profile
+  gem install #{gems}
+  rbenv rehash
   EOS
 end
