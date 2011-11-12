@@ -3,7 +3,7 @@
 # Recipe:: rbenv
 #
 
-DEFAULT_RUBY_VERSION = "1.8.7-p352"
+DEFAULT_RUBY_VERSION = "1.9.2-p290"
 
 root = File.expand_path(File.join(File.dirname(__FILE__), "..", "..", "homebrew"))
 
