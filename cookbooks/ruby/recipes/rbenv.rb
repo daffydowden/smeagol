@@ -26,6 +26,17 @@ script "installing ruby-#{DEFAULT_RUBY_VERSION} to ~/Developer/.rbenv" do
   EOS
 end
 
+script "installing ruby-1.8.7-p352 to ~/Developer/.rbenv" do
+  interpreter "bash"
+  code <<-EOS
+    source ~/.cinderella.profile
+
+    if [ ! -d ~/Developer/.rbenv/versions/1.8.7-p352 ]; then
+      rbenv install 1.8.7-p352
+    fi
+  EOS
+end
+
 script "ensuring a default ruby is set" do
   interpreter "bash"
   code <<-EOS
