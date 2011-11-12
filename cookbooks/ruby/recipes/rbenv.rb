@@ -63,6 +63,7 @@ bash "installing basic gems" do
   gems = "rake rdoc bundler cinderella terminitor lunchy powify wirble hirb sketches what_methods map_by_method looksee net-http-spy jsonpretty awesome_print pry pry-doc pry-remote heroku engineyard gist"
   code <<-EOS
   source ~/.cinderella.profile
+  eval "$(rbenv init -)"
   gem install #{gems}
   rbenv rehash
   EOS
