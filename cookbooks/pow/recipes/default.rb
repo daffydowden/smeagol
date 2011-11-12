@@ -1,12 +1,12 @@
 #
-# Cookbook Name:: oh-my-zsh
+# Cookbook Name:: pow
 # Recipe:: default
 #
 
-script "pow install from pow.cx" do
-  interpreter "bash"
-  code <<-EOS
-    source ~/.cinderella.profile
-    curl get.pow.cx | sh
-  EOS
-end
+root = File.expand_path(File.join(File.dirname(__FILE__), "..", "..", "homebrew"))
+
+require root + '/resources/homebrew'
+require root + '/providers/homebrew'
+require 'etc'
+
+homebrew "pow"
