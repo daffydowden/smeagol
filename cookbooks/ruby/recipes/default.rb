@@ -14,3 +14,7 @@ end
 template "#{ENV['HOME']}/.rdebugrc" do
   source "dot.rdebugrc.erb"
 end
+
+template "#{ENV['HOME']}/.pryrc" do
+  source "dot.pryrc.erb"
+end
