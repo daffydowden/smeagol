@@ -5,6 +5,12 @@
 
 DEFAULT_RUBY_VERSION = "1.8.7-p352"
 
+root = File.expand_path(File.join(File.dirname(__FILE__), "..", "..", "homebrew"))
+
+require root + '/resources/homebrew'
+require root + '/providers/homebrew'
+require 'etc'
+
 script "installing rbenv to ~/Developer" do
   interpreter "bash"
   code <<-EOS
@@ -51,6 +57,12 @@ script "ensuring a default ruby is set" do
     fi
   EOS
 end
+
+homebrew "rbenv-gemset"
+
+# execute "installing rbenv gemsets" do
+#   command "rbenv gemset install"
+# end
 
 script "installing basic gems" do
   # TODO load from this file instead -> #source "default.gems.erb"
