@@ -24,3 +24,10 @@ template "#{ENV['HOME']}/.zshrc" do
   group  Etc.getgrgid(Process.gid).name
   source "dot.zshrc.erb"
 end
+
+template "#{ENV['HOME']}/.zshenv" do
+  mode 0644
+  owner ENV['USER']
+  group  Etc.getgrgid(Process.gid).name
+  source "dot.zshenv.erb"
+end
