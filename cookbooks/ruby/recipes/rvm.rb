@@ -4,7 +4,7 @@
 #
 
 RVM_INSTALL_ROOT     = "#{ENV['HOME']}/Developer/.rvm"
-DEFAULT_RUBY_VERSION = "1.8.7-p248"
+DEFAULT_RUBY_VERSION = "1.9.3-p125"
 
 template "#{ENV['HOME']}/.rvmrc" do
   mode   0700
@@ -32,7 +32,8 @@ script "updating rvm to the latest stable version" do
   interpreter "bash"
   code <<-EOS
     source ~/.cinderella.profile
-    rvm update --head >> ~/.cinderella/ruby.log 2>&1
+    rvm get head >> ~/.cinderella/ruby.log 2>&1
+    rvm reload
   EOS
 end
 
@@ -62,7 +63,7 @@ directory "#{ENV['HOME']}/Developer/.rvm/gemsets" do
   action 'create'
 end
 
-template "#{ENV['HOME']}/Developer/.rvm/gemsets/default.gems" do
+template "#{ENV['HOME']}/Developer/.rvm/gemsets/global.gems" do
   source "default.gems.erb"
 end
 
@@ -75,7 +76,7 @@ script "ensuring default rubygems are installed" do
 end
 
 execute "cleanup rvm build artifacts" do
-  command "find ~/Developer/.rvm/src -depth 1 | grep -v src/rvm | xargs rm -rf "
+  command "find ~/Developer/.rvm/src -depth 1 | grep -v src/rvm | xargs rm -rf"
 end
 
 template "#{ENV['HOME']}/.gemrc" do
