@@ -2,7 +2,7 @@
   "recipes": [
      "homebrew", "homebrew::misc", "git",
      "mvim", "mvim::cli", "homebrew::dbs",
-     "ruby", "ruby::rbenv", "python", "node",
+     "ruby", "ruby::rvm", "python", "node",
      "pow", "oh-my-zsh"
   ]
 }
